@@ -13,7 +13,9 @@ A data-driven blog post investigating 24 seasons of Premier League football.
 
 This project analyses every Premier League match from 2000/01 to 2023/24 (9,030 matches) to answer a specific question: which underlying team statistic — Shots on Target, Corners, or Fouls — is the strongest statistical predictor of league points over a full season?
 
-The analysis uses **multiple OLS regression** (as covered in Unit 5 of the course) on a clean team-season panel dataset engineered from raw match-level data.
+While historical data was sourced via CSV, the project includes a **Python scraping script** (scripts/scrape_latest_data.py) to acquire live season standings.
+
+The analysis uses **multiple OLS regression** on a clean team-season panel dataset engineered from raw match-level data.
 
 **Key finding:** Corners are the single strongest predictor of season points in the multivariate model (β = 8.65), followed by Shots on Target (β = 4.12). Fouling more is negatively associated with points (β = −3.00). The model explains ~53% of variation in season points (R² = 0.527).
 
