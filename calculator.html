@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moneyball Predictor</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f8f8; color: #333; display: flex; justify-content: center; padding-top: 50px; }
+        .calculator { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; text-align: center; }
+        h2 { color: #37003C; margin-top: 0; }
+        .slider-group { margin: 20px 0; text-align: left; }
+        input[type="range"] { width: 100%; cursor: pointer; }
+        .result-box { margin-top: 30px; padding: 20px; background-color: #E8284B; color: white; border-radius: 8px; }
+        .points { font-size: 48px; font-weight: bold; margin: 10px 0; }
+        .label { font-size: 18px; font-weight: bold; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Moneyball Predictor</h2>
+    <p>Adjust the team's stats (in Standard Deviations from the league average) to predict their end-of-season points!</p>
+
+    <div class="slider-group">
+        <label>Corners: <span id="cornerVal">0</span> SD</label>
+        <input type="range" id="corners" min="-3" max="3" step="0.1" value="0" oninput="calculate()">
+    </div>
+
+    <div class="slider-group">
+        <label>Shots on Target: <span id="shotVal">0</span> SD</label>
+        <input type="range" id="shots" min="-3" max="3" step="0.1" value="0" oninput="calculate()">
+    </div>
+
+    <div class="slider-group">
+        <label>Fouls: <span id="foulVal">0</span> SD</label>
+        <input type="range" id="fouls" min="-3" max="3" step="0.1" value="0" oninput="calculate()">
+    </div>
+
+    <div class="result-box">
+        <div>Predicted Points</div>
+        <div class="points" id="finalPoints">52</div>
+        <div class="label" id="statusLabel">Mid-Table Finish</div>
+    </div>
+</div>
+
+<script>
+    function calculate() {
+        // Get values from sliders
+        let c = parseFloat(document.getElementById('corners').value);
+        let s = parseFloat(document.getElementById('shots').value);
+        let f = parseFloat(document.getElementById('fouls').value);
+
+        // Update text labels next to sliders
+        document.getElementById('cornerVal').innerText = c.toFixed(1);
+        document.getElementById('shotVal').innerText = s.toFixed(1);
+        document.getElementById('foulVal').innerText = f.toFixed(1);
+
+        // The exact Math from your OLS Regression
+        // 52 is the base points (intercept), plus the coefficients for each stat
+        let points = 52 + (c * 8.65) + (s * 4.12) + (f * -3.00);
+        points = Math.round(points);
+
+        // Ensure points don't go below 0 or above 114 (impossible in EPL)
+        if (points < 0) points = 0;
+        if (points > 114) points = 114;
+
+        // Display the points
+        document.getElementById('finalPoints').innerText = points;
+
+        // Determine the Status Label
+        let label = "Mid-Table Finish";
+        if (points < 40) label = "Relegation Risk 📉";
+        else if (points >= 61 && points <= 75) label = "European Qualification 🌍";
+        else if (points > 75) label = "Title Contender 🏆";
+        
+        document.getElementById('statusLabel').innerText = label;
+    }
+</script>
+
+</body>
+</html>
