@@ -5,7 +5,7 @@ A data-driven blog post investigating 24 seasons of Premier League football.
 
 **Module:** BEE2041 – Data Science in Economics  
 **Author:** [Dan Pockett / 740044571]  
-**Blog:** [[https://hackmd.io/@95pnGzbHSsKmlkuGBwjlfg/rkrmQzah-x]]
+**Blog:** [https://hackmd.io/@95pnGzbHSsKmlkuGBwjlfg/rkrmQzah-x]
 
 ---
 

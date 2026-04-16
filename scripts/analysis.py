@@ -3,7 +3,7 @@ analysis.py
 ──────────────────────────────────────────────────────────────────────────────
 Project:  Moneyball in the Premier League
 Module:   BEE2041 – Data Science in Economics
-Author:   [Your Name / Student Number]
+Author:   [Dan Pockett / 740044571]
 
 What this script does:
     1. Loads raw match-by-match EPL data (2000/01 – 2023/24)
