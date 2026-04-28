@@ -115,6 +115,12 @@ The script will:
 
 **Expected runtime:** < 30 seconds.
 
+- **(Optional) To fetch live Premier League standings:** >   Run the Unit 5 web scraper to pull the latest table directly from Sky Sports.
+
+```bash
+python3 scripts/scrape_latest_data.py
+```
+
 ---
 
 ### Step 5 — Read the Blog Post
@@ -135,6 +141,8 @@ numpy>=1.24
 matplotlib>=3.7
 seaborn>=0.12
 statsmodels>=0.14
+requests
+beautifulsoup4
 ```
 
 ---

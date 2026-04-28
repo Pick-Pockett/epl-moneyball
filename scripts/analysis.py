@@ -9,7 +9,7 @@ What this script does:
     1. Loads raw match-by-match EPL data (2000/01 – 2023/24)
     2. Engineers match-level points from results
     3. Reshapes and aggregates to a Team-Season panel dataset
-    4. Runs an OLS multiple regression (Unit 5) to test which underlying
+    4. Runs an OLS multiple regression to test which underlying
        metric best predicts season points
     5. Saves 6 publication-quality figures to /figures/
 
@@ -166,11 +166,11 @@ print(team_season[
 
 
 # ══════════════════════════════════════════════════════════════════════════
-# STEP 5: OLS REGRESSION (Unit 5)
+# STEP 5: OLS REGRESSION
 # ══════════════════════════════════════════════════════════════════════════
 
 print("\n" + "=" * 60)
-print("STEP 5: OLS Regression (Unit 5 Analysis Tool)")
+print("STEP 5: OLS Regression")
 print("=" * 60)
 
 # Standardise all three predictors so their coefficients are directly
